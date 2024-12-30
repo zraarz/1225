@@ -1,0 +1,88 @@
+﻿<Window x:Class="_1224_Practice.page"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:_1224_Practice"
+        mc:Ignorable="d"
+        Title="page" Height="450" Width="800">
+    <Grid>
+        <!-- 左侧的帖子列表 -->
+        <ListView x:Name="postListView" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="20">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="频道" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="频道1" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="帖子标题" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="帖子标题" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="简介" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="简介（部分）" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- 右侧的帖子详情 -->
+        <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,10,10" Padding="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- 头像 -->
+                <Ellipse Width="50" Height="50" Fill="LightGray" Margin="0,0,10,0" Grid.Row="0" Grid.Column="0" />
+                <TextBlock Text="名字" FontSize="16" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" />
+                <TextBlock Text="相关信息(头衔，等级等)" Grid.Row="1" Grid.Column="1" />
+
+                <!-- 原帖内容 -->
+                <TextBlock Text=""
+                           TextWrapping="Wrap" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Background="AntiqueWhite"/>
+
+                <!-- 配图示例 -->
+                <Rectangle Width="100" Height="100" Fill="LightGray" Margin="0,10,10,0" Grid.Row="3" Grid.Column="0" />
+                <Rectangle Width="100" Height="100" Fill="LightGray" Margin="0,10,0,0" Grid.Row="3" Grid.Column="1" />
+
+                <!-- 评论区 -->
+                <TextBlock Text="名字 时间" Grid.Row="4" Grid.Column="0" />
+                <Ellipse Width="30" Height="30" Fill="LightGray" Margin="0,0,10,0" Grid.Row="4" Grid.Column="1" />
+                <TextBlock Text="消息" Grid.Row="4" Grid.Column="2" />
+                <TextBlock Text="消息2" Grid.Row="5" Grid.Column="2" />
+
+                <!-- 输入框和发送按钮 -->
+                <TextBox Margin="0,10,0,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" />
+                <Button Content="发送" Margin="10,10,0,0" Grid.Row="6" Grid.Column="2" Width="80" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
